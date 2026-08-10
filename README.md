@@ -47,6 +47,7 @@ Interactive OpenAPI Documentation (Swagger UI): http://127.0.0.1:8000/docs
 Alternative Documentation (ReDoc): http://127.0.0.1:8000/redoc
 
 Endpoints
+
 Method	Endpoint	What it does
 GET	/shipments	list shipments, optional ?status= and ?carrier= filters
 GET	/shipments/{id}	get one shipment, 404 if it doesn't exist
@@ -60,12 +61,16 @@ Code Quality & Testing
 Execute pytest with code coverage tracking:
 
 PowerShell
+
 pytest test_main.py -v --cov=main --cov-report=term-missing
+
 2. Run Code Formatter
 Ensure code adheres to PEP 8 standard formatting:
 
 PowerShell
+
 black main.py test_main.py
+
 3. Run Static Type Checker
 Verify typing definitions:
 
@@ -74,8 +79,25 @@ mypy main.py
 
 ---
 
-### Step 2: Push the Readme to GitHub
-Run these commands in your VS Code terminal to commit and push the newly added `README.md`:
+
+EXECUTION COMMANDS SUMMARY (VS CODE TERMINAL)
+Navigate to directory:
+cd day6_supply_chain_api
+
+Install dependencies:
+python -m pip install fastapi uvicorn pydantic pytest pytest-cov httpx black mypy
+
+Run test suite & coverage (13/13 passed, 93% coverage):
+pytest test_main.py -v --cov=main --cov-report=term-missing
+
+Format & check typing:
+black main.py test_main.py
+mypy main.py
+
+Push to GitHub:
+git add .
+git commit -m "feat: complete Day 6 lab API with auth, type checks, and 93% test coverage"
+git push origin main
 
 ```powershell
 git add README.md
